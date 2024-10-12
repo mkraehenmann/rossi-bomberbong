@@ -30,7 +30,7 @@ def find_match(img, description, time, location):
 
     # Insert lost item into database
     id = random.getrandbits(32)
-    item = Item(id, img, description, time, location)
+    item = Item(id, None, None, description, time, location)
     db = Database()
     db.insert_item(item)
     u = db.get_user(st.session_state.username)
