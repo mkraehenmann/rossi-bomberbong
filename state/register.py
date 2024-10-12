@@ -22,8 +22,10 @@ def register(authenticator, config):
             with open('./config_auth.yaml', 'w') as file:
                 yaml.dump(config, file, default_flow_style=False)
 
+            # get database and add user to it
             db = Database()
             u = User(username_of_registered_user, '', email_of_registered_user)
+            st.session_state.user = u
             db.insert_user(u)
             db.close()
 

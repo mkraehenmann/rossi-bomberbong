@@ -1,5 +1,6 @@
 import streamlit as st
 import yaml
+from db_manager import User
 
 def change_state(state):
     if 'state' in st.session_state:
@@ -19,6 +20,11 @@ def login(authenticator, config):
 
     if st.session_state['authentication_status']:
         authenticator.logout()
+        
+        # create user
+        u = User(st.session_state.username, '', st.session_state.email)
+        st.session_state.user = u
+
         st.write(f'Welcome *{st.session_state["name"]}*')
         change_state('lost_or_found')
         st.rerun()

@@ -1,4 +1,7 @@
 import streamlit as st
+from db_manager import *
+import pickle
+from sentence_transformers import SentenceTransformer, util
 from PIL import Image
 
 def change_state(state):
@@ -17,6 +20,17 @@ def found(authenticator):
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
         st.image(img)  
+
+        # evaluate embedding
+        img_model = SentenceTransformer('clip-ViT-B-32')
+        img_emb = img_model.encode(img)
+        
+        # add to db
+        db = Database()
+        i = Item(1, img, img_emb, "", 0, "")
+        db.insert_item(i)
+        db.insert_found_item(i, st.session_state.user)
+        
 
     # go back to profile page
     st.button('Profile', on_click=change_state, args=['profile'])

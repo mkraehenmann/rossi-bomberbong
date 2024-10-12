@@ -1,12 +1,13 @@
 # create item class that stores an image, description, time and location
 import numpy as np
 import sqlite3
-        
+import pickle
 
 class Item:
-    def __init__(self, id:int, image:np.ndarray, description:str, time:int, location:str):
+    def __init__(self, id:int, image:np.ndarray, emb:np.ndarray, description:str, time:int, location:str):
         self.id = id
         self.image = image
+        self.emb = emb
         self.description = description
         self.time = time
         self.location = location
@@ -36,7 +37,7 @@ class Database:
         self.create_table()
     
     def create_table(self):
-        self.cur.execute('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, image BLOB, description TEXT, time INTEGER, location TEXT)')
+        self.cur.execute('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, image BLOB, emb BLOB, description TEXT, time INTEGER, location TEXT)')
         self.cur.execute('CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, password TEXT, email TEXT)')
         self.cur.execute('CREATE TABLE IF NOT EXISTS lost_items (item_id INTEGER, user_id TEXT, PRIMARY KEY (item_id, user_id))')
         self.cur.execute('CREATE TABLE IF NOT EXISTS found_items (item_id INTEGER, user_id TEXT, PRIMARY KEY (item_id, user_id))')
@@ -79,7 +80,7 @@ class Database:
     def get_items(self) -> list:
         self.cur.execute('SELECT * FROM items')
         items = self.cur.fetchall()
-        return [Item(*item) for item in items]
+        return [Item(item[0], pickle.loads(item[1]), pickle.loads(item[2]), item[3], item[4], item[5]) for item in items]
     
     def get_lost_items(self) -> list:
         self.cur.execute('SELECT * FROM lost_items')
