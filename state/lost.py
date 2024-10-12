@@ -4,6 +4,14 @@ from PIL import Image
 # import folium
 # from streamlit_folium import st_folium
 from datetime import datetime, timedelta
+import folium
+from streamlit_folium import st_folium
+from datetime import datetime
+from db_manager import *
+from sentence_transformers import SentenceTransformer, util
+import torch
+
+
 import json
 from db_manager import *
 
@@ -39,7 +47,28 @@ def find_match(img, description, time, location):
     # TODO: Find match
     match_found = False
 
+    model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
+    desc_emb = model.encode([description])
+    # retrieve all items embedding
+    items = db.get_items()
+    found_ids = [f[0] for f in db.get_found_items()]
+    imgs_emb = [torch.from_numpy(item.emb) for item in items if item.id in found_ids]
+ 
+    # get top 10 items
+    hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
+    print("Query:")
+    for hit in hits:
+        pass
+        #print(hit['score'])
+
+        #st.image(items[hit['corpus_id']].image)
+    
+    st.session_state['hit_img'] = items[hit['corpus_id']].image
+
     db.close()
+
+    if hits[0]['score'] > 0:
+        match_found = True
 
     if match_found:
         change_state('this_your_item')
@@ -90,19 +119,6 @@ def lost(authenticator):
         label_visibility='collapsed'
     )
     time = int(datetime.combine(date, datetime.min.time()).timestamp())
-
-    # get image of lost item
-    """img = None
-    st.subheader("Image")
-    file = st.file_uploader(
-        label="yea", 
-        type=["png", "jpg", "jpeg", "HEIC"],
-        label_visibility='collapsed'
-    )
-    if file is not None:
-        img = Image.open(file)
-        img = img.transpose(Image.ROTATE_270)
-        st.image(img)  """
     
     # get time it was lost
     """
