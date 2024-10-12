@@ -12,6 +12,8 @@ Create frontend and backend stramlit + fastapi: https://medium.com/codex/streaml
 - git clone https://github.com/ggerganov/llama.cpp
 - cd llama.cpp && make
 - follow tutorial here https://huggingface.co/openbmb/MiniCPM-V-2_6-gguf to either compile the model or download precompiled and then run it
+- Prompt: Analyze the image and identify the main object. Provide a detailed and objective description of its physical features, focusing on visible attributes such as text, colors, shapes, dimensions, logos, brand names, textures, and materials. The response should be a long, cohesive text that covers all discernible details, avoiding any assumptions beyond what is directly observable.
+Answer: The main item in the image is described as follows by a cautious writer observer: 
 ### CLIP
 - use hugging-face or compile it down with same tutorial
 
