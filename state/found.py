@@ -9,6 +9,8 @@ import datetime
 from datetime import datetime, timedelta
 import random
 import torch
+from transformers import BlipProcessor, BlipForConditionalGeneration
+
 
 def change_state(state):
     if 'state' in st.session_state:
@@ -74,11 +76,31 @@ def found(authenticator):
     st.subheader("What")
     img = None
     file = st.file_uploader("yea", type=["png", "jpg", "jpeg", "HEIC"], label_visibility='collapsed')
+
+    description = None
+    
     if file is not None:
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
         st.image(img)
         
+        processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+        model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+
+        raw_image = img.convert('RGB')
+
+        # conditional image captioning
+        text = "The image contains "
+        inputs = processor(raw_image, text, return_tensors="pt")
+
+        out = model.generate(**inputs)
+        processor.decode(out[0], skip_special_tokens=True)
+        description = st.text_area(
+            label="yeah",
+            value=processor.decode(out[0], skip_special_tokens=True),
+            label_visibility='collapsed'
+        )
+
     # get location of found item
     with open('rooms.json', 'r') as file:
         locs = json.load(file)
@@ -100,7 +122,7 @@ def found(authenticator):
     )
     time = int(datetime.combine(date, datetime.min.time()).timestamp())
     
-    st.button('Submit', on_click=find_match, args=[img, None, time, location])
+    st.button('Submit', on_click=find_match, args=[img, description, time, location])
     
     # # go back to profile page
     # st.button('Profile', on_click=change_state, args=['profile'])
