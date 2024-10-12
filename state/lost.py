@@ -46,8 +46,10 @@ def lost(authenticator):
     st.write("Select the last known location of your item")
     
     # Carica i dati dal file JSON
-    with open('luoghi.json', 'r') as file:
+    with open('rooms.json', 'r') as file:
         luoghi = json.load(file)
+        
+    print(luoghi)
     # Checkbox per 'unknown'
     unknown = st.checkbox("Non conosco il luogo")
 
@@ -59,17 +61,17 @@ def lost(authenticator):
         stanza_selezionata = "Unknown"
     else:
         # Selezione del luogo
-        luogo_selezionato = st.selectbox("Seleziona un Luogo:", list(luoghi.keys()) + ["Unknown"])
+        luogo_selezionato = st.selectbox("Seleziona un Luogo:", ["Unknown"] + list(luoghi.loc()))
         
         if luogo_selezionato != "Unknown":
             # Selezione dell'edificio
             edifici = luoghi[luogo_selezionato]
-            edificio_selezionato = st.selectbox("Seleziona un Edificio:", list(edifici.keys()) + ["Unknown"])
+            edificio_selezionato = st.selectbox("Seleziona un Edificio:", ["Unknown"] + list(edifici.room()))
             
             if edificio_selezionato != "Unknown":
                 # Selezione della stanza
                 stanze = edifici[edificio_selezionato]
-                stanza_selezionata = st.selectbox("Seleziona una Stanza:", stanze + ["Unknown"])
+                stanza_selezionata = st.selectbox("Seleziona una Stanza:", ["Unknown"])
             else:
                 stanza_selezionata = "Unknown"
         else:
