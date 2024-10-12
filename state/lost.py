@@ -15,21 +15,6 @@ import torch
 import json
 from db_manager import *
 
-# def create_map(predefined_locations):
-#     # Initialize the map
-#     initial_location = [47.376234, 8.547658]  # Centered on ETHZ
-#     m = folium.Map(location=initial_location, zoom_start=16)
-
-#     # Add predefined markers
-#     for name, coords in predefined_locations.items():
-#         folium.Marker(location=coords, popup=name, tooltip=name).add_to(m)
-
-#     # Add ClickForLatLng to the map
-#     m.add_child(folium.ClickForLatLng())
-
-#     return m
-
-
 def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
@@ -44,12 +29,11 @@ def find_match(img, description, time, location):
     u = db.get_user(st.session_state.username)
     db.insert_lost_item(item, u)
 
-    # TODO: Find match
+    # get description embedding
     match_found = False
-
     model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
     desc_emb = model.encode([description])
-    
+
     # retrieve all items embedding
     found_items = db.get_found_items()
     if len(found_items) > 0:
@@ -70,6 +54,7 @@ def find_match(img, description, time, location):
         if hits[0]['score'] > 0:
             match_found = True
 
+    # change state
     db.close()
     if match_found:
         change_state('this_your_item')
@@ -119,52 +104,6 @@ def lost(authenticator):
         label_visibility='collapsed'
     )
     time = int(datetime.combine(date, datetime.min.time()).timestamp())
-    
-    # get time it was lost
-    """
-    current_time = datetime.now().time()
-    time = st.time_input(
-        label="yea",
-        value='now',
-        label_visibility='collapsed'
-    )
-    """
-    
-    # map
-    """
-    # Initial location for the map
-    initial_location = [47.376234009886616, 8.547658923119648]
-
-    # Create a Folium map centered on the initial location
-    m = folium.Map(location=initial_location, zoom_start=16)
-
-    # Add a ClickForLatLng feature to the map
-    m.add_child(folium.ClickForLatLng())
-
-    # Render the Folium map in Streamlit
-    st_data = st_folium(m, width=600, height=300)
-
-    # Check if the user clicked on the map
-    if st_data and 'last_clicked' in st_data:
-        clicked_location = st_data['last_clicked']
-
-        # Make sure clicked_location is not None
-        if clicked_location is not None:
-            # Extract latitude and longitude
-            lat, lon = tuple(clicked_location.values())
-
-            # Create and add the new marker at the clicked location
-            folium.Marker(
-                location=[lat, lon],
-                popup="<i>Selected Location</i>",
-                tooltip="Current Location"
-            ).add_to(m)
-
-            # Re-render the updated map with the new marker
-            st_data = st_folium(m, width=600, height=300)
-
-            # Display the clicked location
-            st.write(f"You clicked at: Latitude: {lat}, Longitude: {lon}")"""
             
     # Find match
     st.button('Find Match', on_click=find_match, args=[None, description, time, location])
