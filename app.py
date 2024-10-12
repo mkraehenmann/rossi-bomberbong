@@ -1,7 +1,7 @@
 # run with streamlit run app.py
 
 import streamlit as st
-import folium
+# import folium
 
 import streamlit_authenticator as stauth
 import yaml
@@ -32,7 +32,7 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days']
 )
 
-print(f'0: {st.session_state}')
+# print(f'0: {st.session_state}')
 
 
 if 'state' not in st.session_state or st.session_state.state == 'login':

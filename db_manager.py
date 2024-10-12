@@ -41,9 +41,16 @@ class Database:
         self.cur.execute('CREATE TABLE IF NOT EXISTS lost_items (item_id INTEGER, user_id TEXT, PRIMARY KEY (item_id, user_id))')
         self.cur.execute('CREATE TABLE IF NOT EXISTS found_items (item_id INTEGER, user_id TEXT, PRIMARY KEY (item_id, user_id))')
     
+    def item_exists(self, id:int) -> bool:
+        self.cur.execute('SELECT * FROM items WHERE id = ?', (id,))
+        return self.cur.fetchone() is not None
+
     def insert_item(self, item:Item):
+        if self.item_exists(item.id):
+            return
+        img = item.image.tobytes() if item.image else None
         self.cur.execute('INSERT INTO items (id, image, description, time, location) VALUES (?, ?, ?, ?, ?)', 
-                         (item.id, item.image.tobytes(), item.description, item.time, item.location))
+                         (item.id, img, item.description, item.time, item.location))
         self.con.commit()
     
     def username_exists(self, username:str) -> bool:
@@ -88,6 +95,13 @@ class Database:
         self.cur.execute('SELECT * FROM users')
         users = self.cur.fetchall()
         return [User(*user) for user in users]
+    
+    def get_user(self, username:str) -> User:
+        self.cur.execute('SELECT * FROM users WHERE username = ?', (username,))
+        user = self.cur.fetchone()
+        if user:
+            return User(*user)
+        return None
     
     def close(self):
         self.con.close()
