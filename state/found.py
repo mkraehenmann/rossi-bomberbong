@@ -3,6 +3,8 @@ from db_manager import *
 import pickle
 from sentence_transformers import SentenceTransformer, util
 from PIL import Image
+import random
+import sys
 
 def change_state(state):
     if 'state' in st.session_state:
@@ -27,7 +29,7 @@ def found(authenticator):
         
         # add to db
         db = Database()
-        i = Item(1, img, img_emb, "", 0, "")
+        i = Item(random.randint(0, sys.maxsize), img, img_emb, "", 0, "")
         db.insert_item(i)
         db.insert_found_item(i, st.session_state.user)
 

@@ -23,6 +23,30 @@ credentials:
       - admin
       - editor
       - viewer
+    jsmith1:
+      email: jsmith1@gmail.com
+      first_name: asdf
+      last_name: asdf
+      logged_in: false
+      password: $2b$12$74xHESQ5MDKh5VdGemQim.pz/L0D20JhQBe0Jx4FV3Lk7h0wCLUhy
+      password_hint: asdfasdf
+      roles: null
+    picion:
+      email: picione@gmail.com
+      first_name: picio
+      last_name: picione
+      logged_in: false
+      password: $2b$12$llDyFBrEjjfVODQFWB/1Mup8pk5X0jP7/VUvf4UkJafBwVQr8ZoZ2
+      password_hint: asfasdf
+      roles: null
+    picione:
+      email: pirla@gmail.com
+      first_name: pirla
+      last_name: pirlone
+      logged_in: false
+      password: $2b$12$bfb8ORlNqSpCIHdL.EpTKu8E.FuEOf7wRYqMTUJk4N0T25qi8Bq4K
+      password_hint: Aa12345!
+      roles: null
     rbriggs:
       email: rbriggs@gmail.com
       failed_login_attempts: 0

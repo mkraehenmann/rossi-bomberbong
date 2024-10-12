@@ -102,14 +102,14 @@ class Database:
         return [User(*user) for user in users]
     
     def get_lost_items(self) -> list:
-        self.cur.execute('SELECT * FROM lost_items')
+        self.cur.execute('SELECT li.item_id, image, emb, description, time, location FROM lost_items li JOIN items it ON (li.item_id = it.id)')
         lost_items = self.cur.fetchall()
-        return lost_items
+        return [Item(item[0], pickle.loads(item[1]) if item[1] else None, pickle.loads(item[2]) if item[2] else None, item[3], item[4], item[5]) for item in lost_items]
     
     def get_found_items(self) -> list:
-        self.cur.execute('SELECT * FROM found_items')
-        found_items = self.cur.fetchall()
-        return found_items
+        self.cur.execute('SELECT fi.item_id, image, emb, description, time, location FROM found_items fi JOIN items it ON (fi.item_id = it.id)')
+        found_items = self.cur.fetchall()        
+        return [Item(item[0], pickle.loads(item[1]) if item[1] else None, pickle.loads(item[2]) if item[2] else None, item[3], item[4], item[5]) for item in found_items]
 
 
     # get single
