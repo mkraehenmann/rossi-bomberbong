@@ -49,26 +49,28 @@ def find_match(img, description, time, location):
 
     model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
     desc_emb = model.encode([description])
+    
     # retrieve all items embedding
     found_items = db.get_found_items()
-    imgs_emb = [torch.from_numpy(item.emb) for item in found_items]
+    if len(found_items) > 0:
+        imgs_emb = [torch.from_numpy(item.emb) for item in found_items]
 
-    # get top 10 items
-    hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
+        # get top 10 items
+        hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
 
-    for hit in hits:
-        pass
-        #print(hit['score'])
+        for hit in hits:
+            pass
+            #print(hit['score'])
 
-        #st.image(items[hit['corpus_id']].image)
-    
-    st.session_state['hit_img'] = found_items[hit['corpus_id']].image
+            #st.image(items[hit['corpus_id']].image)
+        
+        st.session_state['hit_img'] = found_items[hit['corpus_id']].image
+
+
+        if hits[0]['score'] > 0:
+            match_found = True
 
     db.close()
-
-    if hits[0]['score'] > 0:
-        match_found = True
-
     if match_found:
         change_state('this_your_item')
     else:
