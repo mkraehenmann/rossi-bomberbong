@@ -1,39 +1,47 @@
 cookie:
   expiry_days: 30
-  key: some_signature_key # Must be a string
+  key: some_signature_key
   name: some_cookie_name
 credentials:
   usernames:
+    ab:
+      email: ab@gmail.com
+      first_name: Aa
+      last_name: Bb
+      logged_in: false
+      password: $2b$12$yXQH98aq2fI38.dfzfDc6eNs1kByeMHyA1SK3W205gvrOvwq8WgOu
+      password_hint: Aa12345!
+      roles: null
     jsmith:
       email: jsmith@gmail.com
-      failed_login_attempts: 0 # Will be managed automatically
+      failed_login_attempts: 0
       first_name: John
       last_name: Smith
-      logged_in: False # Will be managed automatically
-      password: abc # Will be hashed automatically
-      roles: # Optional
+      logged_in: false
+      password: $2b$12$PGteNdSV1f2Yfia8AxFWGeGCAjKc9eO/GXTtR7wHpShKC3KVIIoDG
+      roles:
       - admin
       - editor
       - viewer
     rbriggs:
       email: rbriggs@gmail.com
-      failed_login_attempts: 0 # Will be managed automatically
+      failed_login_attempts: 0
       first_name: Rebecca
       last_name: Briggs
-      logged_in: False # Will be managed automatically
-      password: def # Will be hashed automatically
-      roles: # Optional
+      logged_in: false
+      password: $2b$12$8qhPZ4HEWdd5fjk1lXDBeODN5jeoVRqZz3Yu2oGt4Mop9P/xTmKyq
+      roles:
       - viewer
-oauth2: # Optional
-  google: # Follow instructions: https://developers.google.com/identity/protocols/oauth2
-    client_id: # To be filled
-    client_secret: # To be filled
-    redirect_uri: # URL to redirect to after OAuth2 authentication
-  microsoft: # Follow instructions: https://learn.microsoft.com/en-us/graph/auth-register-app-v2
-    client_id: # To be filled
-    client_secret: # To be filled
-    redirect_uri: # URL to redirect to after OAuth2 authentication
-    tenant_id: # To be filled
-pre-authorized: # Optional
+oauth2:
+  google:
+    client_id: null
+    client_secret: null
+    redirect_uri: null
+  microsoft:
+    client_id: null
+    client_secret: null
+    redirect_uri: null
+    tenant_id: null
+pre-authorized:
   emails:
   - melsby@gmail.com

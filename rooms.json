@@ -1,0 +1,1722 @@
+[
+    {
+        "loc": "Basel",
+        "room": "BSS E 21"
+    },
+    {
+        "loc": "Basel",
+        "room": "BSS E 23"
+    },
+    {
+        "loc": "Basel",
+        "room": "BSS E 27"
+    },
+    {
+        "loc": "Basel",
+        "room": "BSS E 44"
+    },
+    {
+        "loc": "Basel",
+        "room": "BSS E 46"
+    },
+    {
+        "loc": "Basel",
+        "room": "BSS E 48"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CAB G 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CAB G 51"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CAB G 52"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CAB G 56"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CAB G 57"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CAB G 59"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CAB G 61"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN C 14"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN D 29"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN D 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN D 44"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN D 46"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN D 48"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN E 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN E 46"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN F 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN F 46"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN G 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN G 46"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CHN P 12"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA D 11.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA D 11.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA D 15"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA D 17"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA D 19"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA E 4"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA J 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA J 3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "CLA J 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETA F 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETF B 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETF B 104.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETF C 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETF C 106"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETF C 109"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETF D 110"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETF E 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL C 11.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL C 23.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL D 10.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL D 12"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL F 31"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL G 10.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL G 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL G 16.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL G 16.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL H 15"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL I 10.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETL K 25"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ D 61.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ D 61.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ D 96.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ D 97.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 6"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 7"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 8"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 9"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 60.0032"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 81"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 90.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ E 90.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ F 91"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ G 91"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ H 91"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ J 91"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ K 61"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ETZ K 91"
+    },
+    {
+        "loc": "Lindau Eschikon",
+        "room": "FMG B 17.1"
+    },
+    {
+        "loc": "Lindau Eschikon",
+        "room": "FMG B 17.2"
+    },
+    {
+        "loc": "Lindau Eschikon",
+        "room": "FMG B 17.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 10.002"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 24"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 29.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 29.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 34.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 34.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 38.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "GLC E 38.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HAA E 3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI D 2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI D 4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI D 6"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI D 8"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI E 2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI E 8"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI F 2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI F 8"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 7"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 30.0011"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 190.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 192.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 194.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 196.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 198.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 274"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 290.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 292.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 294.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 296.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 298.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI G 374"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 2.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 8.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 174"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 190.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 192.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 194.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 196.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 198.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 274"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 290.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 292.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 294.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 296.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 298.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 374"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI H 443"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 6"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 7"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 8"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 174"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 190.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 192.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 194.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 196.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 198.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 290.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 292.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 294.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 296.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 298.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 374"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 441"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCI J 443"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCP E 47.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCP E 47.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCP E 47.3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HCP E 47.4"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 1.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 1.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 3.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 3.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 3.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 5.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 5.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 5.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 7.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 7.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 12"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 16.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 22"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 28.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 30.0065"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG D 30.0075"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 1.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 1.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 4"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 7"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 19"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 21"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 22"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 23"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 26.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 26.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 27"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG EO 27.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 30.0015"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 30.0025"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 30.0065"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG EO 30.0065"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 30.0075"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG EO 30.0075"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 33.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 33.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 33.5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 41"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG E 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 7"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 26.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 26.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 26.5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 30"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 30.0029"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 30.0053"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 33.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 33.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 33.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 33.4"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 33.5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 50.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG F 60.0029"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 19.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 19.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 26.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 26.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 26.5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 30.006"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 43"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 60"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG G 60.0025"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG J 29.7"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG J 31.5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG K 30.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "HG KO 33"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIF D 80.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIF E 11"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL B 18.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL B 21"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 10.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 10.3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 10.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 10.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 10.0018"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 15"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 29"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 30.0015"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 30.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 30.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 71.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL C 71.3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 10.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 10.0015"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 10.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 10.0045"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 15"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 30.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 30.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 30.0018"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 30.0019"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 53"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 55.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL D 60.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 5"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 6"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 7"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 8"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 9"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 10.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 10.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 10.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 10.0018"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 30.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 30.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 36.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 50.0045"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 50.0046"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 65"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL E 67"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 10.3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 10.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 15"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 15.4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 25.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 30.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 30.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 36.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 40.3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 40.5"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 40.9"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 41"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL F 61"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 10.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 15.4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 22"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 30.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 30.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 41"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 60.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL G 61"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 30.0016"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 30.0017"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 35.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 35.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 37.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 40.4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 40.8"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIL H 40.9"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT E 41.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT E 50.0002"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT E 51"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT F 11.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT F 12"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT F 13"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT F 21"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT F 31.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT F 31.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT F 32"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT G 51"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT H 12"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT H 42"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT H 51"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT J 43.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT J 51"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT J 52"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT J 53"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT K 51"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HIT K 52"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPF G 6"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH D 10.1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH D 10.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH D 10.3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH D 10.4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH D 10.5"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH D 10.6"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH G 1"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH G 2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPH G 3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPI D 8.3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPI F 16"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPK D 3"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPK D 24.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPL D 12"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPL D 21.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPL D 23.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPL D 25.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPL D 32"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPL D 34"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPL J 28"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPM D 7.2"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPT C 103"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPV D 52"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPV G 4"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPV G 5"
+    },
+    {
+        "loc": "Zürich Hönggerberg",
+        "room": "HPZ E 35"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW A 32.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW A 34"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW A 36"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW B 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW C 31"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW C 33"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW C 35"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW C 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW D 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "IFW E 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE C 104"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE C 114"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE D 101"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE D 105"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE E 100.005"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE E 101"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE E 126"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE E 308"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEE F 118"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LEH C 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFO C 13"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFO C 19"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFV B 42.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFV B 42.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFV C 42"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFV E 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFV E 41"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW B 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW B 2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW B 3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW B 41"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW B 52"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW C 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW C 4"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW C 5"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW C 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW D 12"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW E 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW E 13"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW E 15"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "LFW E 55"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML A 22.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML D 28"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML E 12"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML E 13"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML F 34"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML F 36"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML F 38"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML F 39"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML F 40"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML H 34.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML H 34.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML H 37.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML H 41.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML H 43"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML H 44"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML H 51.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML J 26"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML J 34.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML J 34.2"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML J 34.3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML J 37.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ML K 31"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "MM C 78.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO CO 1.1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO C 6"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO C 44"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO C 60"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO D 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO D 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO D 39"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO D 45"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO D 69"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO E 11"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "NO E 39"
+    },
+    {
+        "loc": "Zürich Oerlikon",
+        "room": "ONA E 7"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "RZ F 21"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "SEC B 3"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "SEW D 22"
+    },
+    {
+        "loc": "Schwerzenbach",
+        "room": "SLA B 91"
+    },
+    {
+        "loc": "Schwerzenbach",
+        "room": "SLA D 1"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "TUR C 16"
+    },
+    {
+        "loc": "Zürich Universität",
+        "room": "Y17 M 5"
+    },
+    {
+        "loc": "Zürich Universität",
+        "room": "Y55 G 20"
+    },
+    {
+        "loc": "Zürich Zentrum",
+        "room": "ZUE G 1"
+    }
+]

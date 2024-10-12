@@ -1,6 +1,4 @@
 import streamlit as st
-from PIL import Image
-import matplotlib.pyplot as plt
 
 import folium
 from streamlit_folium import st_folium
