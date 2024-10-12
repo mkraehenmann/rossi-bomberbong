@@ -42,7 +42,7 @@ def lost(authenticator):
     db = Database()
     items = db.get_items()
     imgs_emb = [torch.from_numpy(item.emb) for item in items]
-
+ 
     # get top 10 items
     hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
     print("Query:")
