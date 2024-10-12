@@ -1,6 +1,4 @@
 import streamlit as st
-from PIL import Image
-import matplotlib.pyplot as plt
 
 import folium
 from streamlit_folium import st_folium
@@ -17,14 +15,7 @@ def lost(authenticator):
     st.title("404NotLost")
     st.header('You Lost Something?')
     
-    st.subheader("What?")
-    st.write("Upload an image of the lost item")
-    file = st.file_uploader("", type=["png", "jpg", "jpeg", "HEIC"])
-
-    if file is not None:
-        img = Image.open(file)
-        img = img.transpose(Image.ROTATE_270)
-        st.image(img)     
+    st.subheader("What?")   
         
     st.subheader("Where?")
     st.write("Select the last known location of your item")

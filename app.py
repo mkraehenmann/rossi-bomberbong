@@ -8,6 +8,7 @@ import yaml
 from yaml.loader import SafeLoader
 
 from state.login import login
+from state.register import register
 from state.lost_or_found import lost_or_found
 from state.lost import lost
 from state.found import found
@@ -36,6 +37,9 @@ print(f'0: {st.session_state}')
 
 if 'state' not in st.session_state or st.session_state.state == 'login':
     login(authenticator, config)
+
+elif st.session_state.state == 'register':
+    register(authenticator, config)
 
 elif st.session_state.state == 'lost_or_found':
     lost_or_found(authenticator)
