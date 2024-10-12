@@ -9,6 +9,7 @@ def this_your_item(authenticator):
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
     
     st.title('Is This Your Item ?')
+    st.image(st.session_state['hit_img'])
 
     # if is your item go to someone_found page
     st.button('This is my item', on_click=change_state, args=['someone_found'])
