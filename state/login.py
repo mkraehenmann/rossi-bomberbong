@@ -7,6 +7,6 @@ def change_state(state):
 def login():
     st.session_state.state = 'login'
 
-    st.title('Login Page')
+    st.title('Login')
 
     st.button('Login', on_click=change_state, args=['lost_or_found'])

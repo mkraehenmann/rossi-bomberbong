@@ -5,6 +5,13 @@ def change_state(state):
         st.session_state.state = state
 
 def lost():
-    st.title('Lost Page')
+    st.title('You Lost Something ?')
 
-    st.button('Back', on_click=change_state, args=['lost_or_found'])
+    # go back to profile page
+    st.button('Profile', on_click=change_state, args=['profile'])
+
+    # if match go to this_your_item page
+    st.button('found match', on_click=change_state, args=['this_your_item'])
+
+    # if not match go to profile page
+    st.button('not found match', on_click=change_state, args=['profile'])
