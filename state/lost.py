@@ -10,7 +10,10 @@ def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
-def lost():
+def lost(authenticator):
+
+    authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
+
     st.title("404NotLost")
     st.header('You Lost Something?')
     

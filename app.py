@@ -3,6 +3,10 @@
 import streamlit as st
 import folium
 
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
+
 from state.login import login
 from state.lost_or_found import lost_or_found
 from state.lost import lost
@@ -17,29 +21,39 @@ def change_state(state):
         st.session_state.state = state
 
 
+with open('./config_auth.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days']
+)
+
 print(f'0: {st.session_state}')
 
 
 if 'state' not in st.session_state or st.session_state.state == 'login':
-    login()
+    login(authenticator, config)
 
 elif st.session_state.state == 'lost_or_found':
-    lost_or_found()
+    lost_or_found(authenticator)
 
 elif st.session_state.state == 'lost':
-    lost()
+    lost(authenticator)
 
 elif st.session_state.state == 'found':
-    found()
+    found(authenticator)
 
 elif st.session_state.state == 'profile':
-    profile()
+    profile(authenticator)
 
 elif st.session_state.state == 'this_your_item':
-    this_your_item()
+    this_your_item(authenticator)
 
 elif st.session_state.state == 'someone_found':
-    someone_found()
+    someone_found(authenticator)
 
 elif st.session_state.state == 'someone_lost':
-    someone_lost()
+    someone_lost(authenticator)

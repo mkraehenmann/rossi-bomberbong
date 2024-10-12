@@ -4,7 +4,10 @@ def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
-def this_your_item():
+def this_your_item(authenticator):
+    
+    authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
+    
     st.title('Is This Your Item ?')
 
     # if is your item go to someone_found page
