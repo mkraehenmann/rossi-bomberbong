@@ -89,10 +89,9 @@ def lost(authenticator):
 
     # title
     st.title("Describe the item you lost")
-    st.write('Required items are marked with an asterisk.')
     
     # get description of lost item
-    st.subheader("What *")
+    st.subheader("What")
     description = st.text_area(
         label="yea",
         value="Provide a description",
