@@ -8,7 +8,7 @@ import json
 import datetime
 from datetime import datetime, timedelta
 import random
-import sys
+import torch
 
 def change_state(state):
     if 'state' in st.session_state:
@@ -19,6 +19,9 @@ def find_match(img, description, time, location):
         # evaluate embedding
         img_model = SentenceTransformer('clip-ViT-B-32')
         img_emb = img_model.encode(img)
+
+        # description embedder
+        desc_model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
 
         # Insert found item into database
         id = random.getrandbits(32)
@@ -31,10 +34,24 @@ def find_match(img, description, time, location):
         # TODO: Find match
         match_found = False
 
+        # retrieve all items embedding
+        lost_items = db.get_lost_items()
+        
+        if len(lost_items) > 0:
+            descs_emb = [torch.from_numpy(desc_model.encode(item.description)) for item in lost_items]
+
+            # get top 10 items
+            hits = util.semantic_search([torch.from_numpy(img_emb)], descs_emb, top_k=10)[0]
+            
+            st.session_state['hit_desc'] = lost_items[hits[0]['corpus_id']].description
+
+            if hits[0]['score'] > 0:
+                match_found = True
+
         db.close()
 
         if match_found:
-            change_state('someone_lost')
+            change_state('this_description_matches')
         else:
             change_state('profile')
 
