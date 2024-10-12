@@ -41,14 +41,8 @@ def find_match(img, description, time, location):
 
         # get top 10 items
         hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
-
-        for hit in hits:
-            pass
-            #print(hit['score'])
-
-            #st.image(items[hit['corpus_id']].image)
         
-        st.session_state['hit_img'] = found_items[hit['corpus_id']].image
+        st.session_state['hit_img'] = found_items[hits[0]['corpus_id']].image
 
 
         if hits[0]['score'] > 0:
