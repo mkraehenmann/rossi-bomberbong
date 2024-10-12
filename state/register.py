@@ -9,7 +9,9 @@ def change_state(state):
 def register(authenticator, config):
     st.session_state.state = 'register'
 
-    st.title('Register')
+    st.title('404NotFound')
+
+    st.write('This is a web app that helps you find your lost items or report items you found.')
 
     try:
         email_of_registered_user, \
@@ -33,3 +35,5 @@ def register(authenticator, config):
             st.rerun()
     except Exception as e:
         st.error(e)
+
+    st.button('Login User', on_click=change_state, args=['login'])

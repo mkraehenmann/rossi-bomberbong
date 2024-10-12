@@ -9,6 +9,7 @@ Create frontend and backend stramlit + fastapi: https://medium.com/codex/streaml
 - `config_auth.yaml` contains the configuration for the streamlit authenticator
 - `db_manager.py` contains the class that manages the SQLite database
 - `items.db` SQLite database that stores the items
+- `reset_db.py` script to reset the SQLite database
 - `rooms.json` JSON file that stores the ETH location names
 
 ## Install and compile local model
@@ -30,9 +31,12 @@ Answer: The main item in the image is described as follows by a cautious writer 
 - `matplotlib`
 - `pillow`
 - `conda-forge::transformers`
+- `scikit-learn`
 
 Install dependencies with:
 `conda install <dependency1> <dependency2> ...`
+Additional pytorch requirement:
+`conda install pytorch torchvision torchaudio cpuonly -c pytorch`
 
 ## Pip Dependencies
 - `streamlit_authenticator`	

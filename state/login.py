@@ -9,14 +9,16 @@ def change_state(state):
 def login(authenticator, config):
     st.session_state.state = 'login'
 
-    st.title('Login')    
+    st.title('404NotFound') 
+
+    st.write('This is a web app that helps you find your lost items or report items you found.')
 
     try:
         authenticator.login()
     except Exception as e:
         st.error(e)
 
-    st.button('Register', on_click=change_state, args=['register'])
+    st.button('Register User', on_click=change_state, args=['register'])
 
     if st.session_state['authentication_status']:
         authenticator.logout()

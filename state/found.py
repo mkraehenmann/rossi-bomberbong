@@ -1,6 +1,7 @@
 import streamlit as st
 from db_manager import *
 import pickle
+import random
 from sentence_transformers import SentenceTransformer, util
 from PIL import Image
 import json
@@ -13,15 +14,45 @@ def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
+def find_match(img, description, time, location):
+    
+        # Insert found item into database
+        id = random.getrandbits(32)
+        item = Item(id, None, None, description, time, location)
+        db = Database()
+        db.insert_item(item)
+        u = db.get_user(st.session_state.username)
+        db.insert_found_item(item, u)
+
+        # TODO: Find match
+        match_found = False
+
+        db.close()
+
+        if match_found:
+            change_state('someone_lost')
+        else:
+            change_state('profile')
+
 def found(authenticator):
 
+    # go back to profile page
+    st.sidebar.button(
+        label = st.session_state.username, 
+        on_click=change_state, 
+        args=['profile'],
+    )
+
+    # logout
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
 
-    st.title('You Found Something ?')
-    st.subheader("What")
-    st.write("Upload an image of the found item")
-    file = st.file_uploader("", type=["png", "jpg", "jpeg", "HEIC"])
+    # title
+    st.title('Describe the item you found')
 
+    # get image of found item
+    st.subheader("What")
+    img = None
+    file = st.file_uploader("yea", type=["png", "jpg", "jpeg", "HEIC"], label_visibility='collapsed')
     if file is not None:
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
@@ -58,13 +89,13 @@ def found(authenticator):
     )
     time = int(datetime.combine(date, datetime.min.time()).timestamp())
     
-    st.button('Find Match', on_click=lambda : print("ok"))
+    st.button('Submit', on_click=find_match, args=[img, None, time, location])
     
-    # go back to profile page
-    st.button('Profile', on_click=change_state, args=['profile'])
+    # # go back to profile page
+    # st.button('Profile', on_click=change_state, args=['profile'])
 
-    # if match go to someone_lost page
-    st.button('found match', on_click=change_state, args=['someone_lost'])
+    # # if match go to someone_lost page
+    # st.button('found match', on_click=change_state, args=['someone_lost'])
 
-    # if not match go to profile page
-    st.button('not found match', on_click=change_state, args=['profile'])
+    # # if not match go to profile page
+    # st.button('not found match', on_click=change_state, args=['profile'])
