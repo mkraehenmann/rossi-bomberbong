@@ -6,20 +6,6 @@ from datetime import datetime
 
 import json
 
-def create_map(predefined_locations):
-    # Initialize the map
-    initial_location = [47.376234, 8.547658]  # Centered on ETHZ
-    m = folium.Map(location=initial_location, zoom_start=16)
-
-    # Add predefined markers
-    for name, coords in predefined_locations.items():
-        folium.Marker(location=coords, popup=name, tooltip=name).add_to(m)
-
-    # Add ClickForLatLng to the map
-    m.add_child(folium.ClickForLatLng())
-
-    return m
-
 def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
@@ -44,89 +30,41 @@ def lost(authenticator):
 
     st.subheader("Where?")
     st.write("Select the last known location of your item")
-    
-    # Carica i dati dal file JSON
-    with open('rooms.json', 'r') as file:
-        luoghi = json.load(file)
-        
-    print(luoghi)
-    # Checkbox per 'unknown'
-    unknown = st.checkbox("Non conosco il luogo")
-
-    if unknown:
-        st.write("Hai selezionato 'Unknown'.")
-        # Non mostrare le dropdowns se si seleziona 'unknown'
-        luogo_selezionato = "Unknown"
-        edificio_selezionato = "Unknown"
-        stanza_selezionata = "Unknown"
-    else:
-        # Selezione del luogo
-        luogo_selezionato = st.selectbox("Seleziona un Luogo:", ["Unknown"] + list(luoghi.loc()))
-        
-        if luogo_selezionato != "Unknown":
-            # Selezione dell'edificio
-            edifici = luoghi[luogo_selezionato]
-            edificio_selezionato = st.selectbox("Seleziona un Edificio:", ["Unknown"] + list(edifici.room()))
-            
-            if edificio_selezionato != "Unknown":
-                # Selezione della stanza
-                stanze = edifici[edificio_selezionato]
-                stanza_selezionata = st.selectbox("Seleziona una Stanza:", ["Unknown"])
-            else:
-                stanza_selezionata = "Unknown"
-        else:
-            edificio_selezionato = "Unknown"
-            stanza_selezionata = "Unknown"
-
-    # Mostra le selezioni
-    st.write(f"Luogo Selezionato: {luogo_selezionato}")
-    st.write(f"Edificio Selezionato: {edificio_selezionato}")
-    st.write(f"Stanza Selezionata: {stanza_selezionata}")
-    """
     # Initial location for the map
-    initial_location = [47.376234009886616, 8.547658923119648]
 
-    # Create a Folium map centered on the initial location
-    m = folium.Map(location=initial_location, zoom_start=16)
+    # Create an empty session state variable for storing the latest clicked location
+    if 'last_clicked_location' not in st.session_state:
+        st.session_state.last_clicked_location = None
+    
+    if st.session_state.last_clicked_location != None:        
+        st.session_state.location = st.session_state.last_clicked_location
+        
+    m = folium.Map(location=st.session_state.location, zoom_start=16)
+    
+    lat, lon = st.session_state.location
+    # Add the marker at the clicked location
+    folium.Marker([lat, lon], popup="Latest Location").add_to(m)
 
-    # Add a ClickForLatLng feature to the map
-    m.add_child(folium.ClickForLatLng())
-
+    # Add the ClickForMarker functionality to capture the new click location
+    m.add_child(folium.ClickForMarker())
+    
     # Render the Folium map in Streamlit
-    st_data = st_folium(m, width=600, height=300)
-
-    # Check if the user clicked on the map
-    if st_data and 'last_clicked' in st_data:
-        clicked_location = st_data['last_clicked']
-
-        # Make sure clicked_location is not None
-        if clicked_location is not None:
-            # Extract latitude and longitude
-            lat, lon = tuple(clicked_location.values())
-
-            # Create and add the new marker at the clicked location
-            folium.Marker(
-                location=[lat, lon],
-                popup="<i>Selected Location</i>",
-                tooltip="Current Location"
-            ).add_to(m)
-
-            # Re-render the updated map with the new marker
-            st_data = st_folium(m, width=600, height=300)
-
-            # Display the clicked location
-            st.write(f"You clicked at: Latitude: {lat}, Longitude: {lon}")"""
-            
-            
+    st_data = st_folium(m, width=600, height=400)
+    
+    # If the user clicks on the map, update the session state with the new location
+    if st_data and st_data['last_clicked'] is not None:
+        st.session_state.last_clicked_location = (st_data['last_clicked']['lat'], st_data['last_clicked']['lng'])
+        m.location = st.session_state.last_clicked_location
+        st_data = st_folium(m, width=600, height=400)
+    
     st.subheader("When?")
     
-    st.write("Select the time when you lost your item")
-    current_time = datetime.now().time()
-    # Add a time input widget with the default time set to now
-    selected_time = st.time_input("Select a time:", value=current_time)
+    current_datetime = datetime.now()
 
-    # Display the selected time
-    st.write(f"Selected time: {selected_time}")
+    # Create date selection
+    selected_date = st.date_input("Select a date:", value=current_datetime.date())
+
+    st.write(f"Date: {selected_date}")
         
     col1, col2 = st.columns(2)
     

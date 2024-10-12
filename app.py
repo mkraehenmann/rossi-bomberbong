@@ -31,7 +31,7 @@ authenticator = stauth.Authenticate(
     config['cookie']['key'],
     config['cookie']['expiry_days']
 )
-
+st.session_state.location = [47.376234009886616, 8.547658923119648]
 print(f'0: {st.session_state}')
 
 
@@ -45,8 +45,9 @@ elif st.session_state.state == 'lost_or_found':
     lost_or_found(authenticator)
 
 elif st.session_state.state == 'lost':
+    
     lost(authenticator)
-
+    
 elif st.session_state.state == 'found':
     found(authenticator)
 
