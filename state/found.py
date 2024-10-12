@@ -1,7 +1,7 @@
 import streamlit as st
 from db_manager import *
 import pickle
-from sentence_transformers import SentenceTransformer, util
+# from sentence_transformers import SentenceTransformer, util
 from PIL import Image
 
 def change_state(state):
@@ -16,6 +16,7 @@ def found(authenticator):
     st.write("Upload an image of the found item")
     file = st.file_uploader("", type=["png", "jpg", "jpeg", "HEIC"])
 
+    """
     if file is not None:
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
@@ -30,7 +31,7 @@ def found(authenticator):
         i = Item(1, img, img_emb, "", 0, "")
         db.insert_item(i)
         db.insert_found_item(i, st.session_state.user)
-        
+    """
 
     # go back to profile page
     st.button('Profile', on_click=change_state, args=['profile'])

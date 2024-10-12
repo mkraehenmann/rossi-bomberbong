@@ -1,4 +1,9 @@
+import random
 import streamlit as st
+from PIL import Image
+# import folium
+# from streamlit_folium import st_folium
+from datetime import datetime, timedelta
 import folium
 from streamlit_folium import st_folium
 from datetime import datetime
@@ -8,29 +13,100 @@ import torch
 
 
 import json
+from db_manager import *
 
-def create_map(predefined_locations):
-    # Initialize the map
-    initial_location = [47.376234, 8.547658]  # Centered on ETHZ
-    m = folium.Map(location=initial_location, zoom_start=16)
+# def create_map(predefined_locations):
+#     # Initialize the map
+#     initial_location = [47.376234, 8.547658]  # Centered on ETHZ
+#     m = folium.Map(location=initial_location, zoom_start=16)
 
-    # Add predefined markers
-    for name, coords in predefined_locations.items():
-        folium.Marker(location=coords, popup=name, tooltip=name).add_to(m)
+#     # Add predefined markers
+#     for name, coords in predefined_locations.items():
+#         folium.Marker(location=coords, popup=name, tooltip=name).add_to(m)
 
-    # Add ClickForLatLng to the map
-    m.add_child(folium.ClickForLatLng())
+#     # Add ClickForLatLng to the map
+#     m.add_child(folium.ClickForLatLng())
 
-    return m
+#     return m
+
 
 def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
+def find_match(img, description, time, location):
+
+    # Insert lost item into database
+    id = random.getrandbits(32)
+    item = Item(id, None, None, description, time, location)
+    db = Database()
+    db.insert_item(item)
+    u = db.get_user(st.session_state.username)
+    db.insert_lost_item(item, u)
+
+    # TODO: Find match
+    match_found = False
+
+    db.close()
+
+    if match_found:
+        change_state('this_your_item')
+    else:
+        change_state('profile')
+
 def lost(authenticator):
 
+    # go back to profile page
+    st.sidebar.button(
+        label = st.session_state.username, 
+        on_click=change_state, 
+        args=['profile'],
+    )
+
+    # logout
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
 
+    # title
+    st.title("Describe the item you lost")
+    st.write('Required items are marked with an asterisk.')
+    
+    # get description of lost item
+    st.subheader("What *")
+    description = st.text_area(
+        label="yea",
+        value="Provide a description",
+        label_visibility='collapsed'
+    )
+
+    # get last known location of lost item
+    with open('rooms.json', 'r') as file:
+        locs = json.load(file)
+    st.subheader('Where')
+    location = st.selectbox(
+        label = 'yea',
+        options = locs,
+        label_visibility='collapsed'
+    )
+
+    # get date it was lost
+    st.subheader("When")
+    date = st.date_input(
+        label="yea",
+        value='today',
+        max_value=datetime.now().date(),
+        min_value=datetime.now().date() - timedelta(days=30),
+        label_visibility='collapsed'
+    )
+    time = int(datetime.combine(date, datetime.min.time()).timestamp())
+
+    # get image of lost item
+    """img = None
+    st.subheader("Image")
+    file = st.file_uploader(
+        label="yea", 
+        type=["png", "jpg", "jpeg", "HEIC"],
+        label_visibility='collapsed'
+    )
     st.title("404NotLost")
     st.header('You Lost Something?')
     
@@ -58,50 +134,19 @@ def lost(authenticator):
     if file is not None:
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
-        st.image(img)     
+        st.image(img)  """
     
-    """where"""
-
-    st.subheader("Where?")
-    st.write("Select the last known location of your item")
+    # get time it was lost
+    """
+    current_time = datetime.now().time()
+    time = st.time_input(
+        label="yea",
+        value='now',
+        label_visibility='collapsed'
+    )
+    """
     
-    # Carica i dati dal file JSON
-    with open('rooms.json', 'r') as file:
-        luoghi = json.load(file)
-        
-    print(luoghi)
-    # Checkbox per 'unknown'
-    unknown = st.checkbox("Non conosco il luogo")
-
-    if unknown:
-        st.write("Hai selezionato 'Unknown'.")
-        # Non mostrare le dropdowns se si seleziona 'unknown'
-        luogo_selezionato = "Unknown"
-        edificio_selezionato = "Unknown"
-        stanza_selezionata = "Unknown"
-    else:
-        # Selezione del luogo
-        luogo_selezionato = st.selectbox("Seleziona un Luogo:", ["Unknown"] + list(luoghi.loc()))
-        
-        if luogo_selezionato != "Unknown":
-            # Selezione dell'edificio
-            edifici = luoghi[luogo_selezionato]
-            edificio_selezionato = st.selectbox("Seleziona un Edificio:", ["Unknown"] + list(edifici.room()))
-            
-            if edificio_selezionato != "Unknown":
-                # Selezione della stanza
-                stanze = edifici[edificio_selezionato]
-                stanza_selezionata = st.selectbox("Seleziona una Stanza:", ["Unknown"])
-            else:
-                stanza_selezionata = "Unknown"
-        else:
-            edificio_selezionato = "Unknown"
-            stanza_selezionata = "Unknown"
-
-    # Mostra le selezioni
-    st.write(f"Luogo Selezionato: {luogo_selezionato}")
-    st.write(f"Edificio Selezionato: {edificio_selezionato}")
-    st.write(f"Stanza Selezionata: {stanza_selezionata}")
+    # map
     """
     # Initial location for the map
     initial_location = [47.376234009886616, 8.547658923119648]
@@ -137,30 +182,8 @@ def lost(authenticator):
             # Display the clicked location
             st.write(f"You clicked at: Latitude: {lat}, Longitude: {lon}")"""
             
-            
-    st.subheader("When?")
-    
-    st.write("Select the time when you lost your item")
-    current_time = datetime.now().time()
-    # Add a time input widget with the default time set to now
-    selected_time = st.time_input("Select a time:", value=current_time)
-
-    # Display the selected time
-    st.write(f"Selected time: {selected_time}")
-        
-    col1, col2 = st.columns(2)
-    
-    # if match go to this_your_item page
-    with col1:
-        st.button('found match', on_click=change_state, args=['this_your_item'])
-
-    # if not match go to profile page
-    with col2:
-        st.button('not found match', on_click=change_state, args=['profile'])
-        
-    # go back to profile page
-    st.button('Profile', on_click=change_state, args=['profile'])
-
+    # Find match
+    st.button('Find Match', on_click=find_match, args=[None, description, time, location])
     
     
     

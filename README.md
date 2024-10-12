@@ -25,6 +25,7 @@ Answer: The main item in the image is described as follows by a cautious writer 
 - `folium`
 - `matplotlib`
 - `pillow`
+- `conda-forge::transformers`
 
 Install dependencies with:
 `conda install <dependency1> <dependency2> ...`
