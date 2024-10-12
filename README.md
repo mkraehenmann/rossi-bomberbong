@@ -26,3 +26,7 @@ Create frontend and backend stramlit + fastapi: https://medium.com/codex/streaml
 
 Install dependencies with:
 `conda install <dependency1> <dependency2> ...`
+
+## Pip Dependencies
+- `streamlit_authenticator`	
+- `streamlit_folium`
