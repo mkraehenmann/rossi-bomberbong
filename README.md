@@ -6,3 +6,11 @@ Create frontend and backend stramlit + fastapi: https://medium.com/codex/streaml
 ## Files and Folders
 - `state` contains the python files that implement functionalities for each state of the app
 - `app.py` main file that runs streamlit app. Execute with `streamlit run app.py`
+
+## Install and compile local model
+### MINI-CPM (Cpu usage)
+- git clone https://github.com/ggerganov/llama.cpp
+- cd llama.cpp && make
+- follow tutorial here https://huggingface.co/openbmb/MiniCPM-V-2_6-gguf to either compile the model or download precompiled and then run it
+### CLIP
+- use hugging-face or compile it down with same tutorial
