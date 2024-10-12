@@ -7,8 +7,9 @@ def change_state(state):
 def lost_or_found(authenticator):
 
     # go back to profile page
+    st.sidebar.markdown(st.session_state.username)
     st.sidebar.button(
-        label = st.session_state.username, 
+        label = 'Your Profile',
         on_click=change_state, 
         args=['profile'],
     )
