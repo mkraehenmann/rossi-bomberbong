@@ -1,3 +1,4 @@
 # match all pycache directories also in subfolders
 **/__pycache__/
-items.db
+*.yaml
+*.db
