@@ -1,8 +1,11 @@
 import streamlit as st
-
 import folium
 from streamlit_folium import st_folium
 from datetime import datetime
+from db_manager import *
+from sentence_transformers import SentenceTransformer, util
+import torch
+
 
 import json
 
@@ -32,6 +35,23 @@ def lost(authenticator):
     st.header('You Lost Something?')
     
     st.subheader("What?")
+    desc = st.text_input("Description of the object: ")
+    model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
+    desc_emb = model.encode([desc])
+    # retrieve all items embedding
+    db = Database()
+    items = db.get_items()
+    imgs_emb = [torch.from_numpy(item.emb) for item in items]
+
+    # get top 10 items
+    hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
+    print("Query:")
+    for hit in hits:
+        print(hit['score'])
+
+        st.image(items[hit['corpus_id']].image)
+
+
     st.write("Upload an image of the lost item")
     file = st.file_uploader("", type=["png", "jpg", "jpeg", "HEIC"])
 
