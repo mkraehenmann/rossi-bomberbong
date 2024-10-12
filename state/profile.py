@@ -4,7 +4,10 @@ def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
-def profile():
+def profile(authenticator):
+
+    authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
+    
     st.title('Profile')
 
     # go back to the lost or found page

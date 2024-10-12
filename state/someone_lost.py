@@ -4,7 +4,10 @@ def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
-def someone_lost():
+def someone_lost(authenticator):
+    
+    authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
+
     st.title('Someone Lost the Item you Found') 
 
     # go back to profile page
