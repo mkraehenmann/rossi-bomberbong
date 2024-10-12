@@ -6,6 +6,22 @@ import folium
 from streamlit_folium import st_folium
 from datetime import datetime
 
+import json
+
+def create_map(predefined_locations):
+    # Initialize the map
+    initial_location = [47.376234, 8.547658]  # Centered on ETHZ
+    m = folium.Map(location=initial_location, zoom_start=16)
+
+    # Add predefined markers
+    for name, coords in predefined_locations.items():
+        folium.Marker(location=coords, popup=name, tooltip=name).add_to(m)
+
+    # Add ClickForLatLng to the map
+    m.add_child(folium.ClickForLatLng())
+
+    return m
+
 def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
@@ -25,26 +41,83 @@ def lost(authenticator):
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
         st.image(img)     
-        
+    
+    """where"""
+
     st.subheader("Where?")
     st.write("Select the last known location of your item")
     
-    # center on Liberty Bell, add marker  47.376234009886616, 8.547658923119648
-    m = folium.Map(location=[47.376234, 8.5476589], zoom_start=16)
-    folium.Marker(
-        [47.376234, 8.5476589], popup="<i>ETHZ<i>", tooltip="RossiBomberBong"
-    ).add_to(m)
-    
+    # Carica i dati dal file JSON
+    with open('luoghi.json', 'r') as file:
+        luoghi = json.load(file)
+    # Checkbox per 'unknown'
+    unknown = st.checkbox("Non conosco il luogo")
+
+    if unknown:
+        st.write("Hai selezionato 'Unknown'.")
+        # Non mostrare le dropdowns se si seleziona 'unknown'
+        luogo_selezionato = "Unknown"
+        edificio_selezionato = "Unknown"
+        stanza_selezionata = "Unknown"
+    else:
+        # Selezione del luogo
+        luogo_selezionato = st.selectbox("Seleziona un Luogo:", list(luoghi.keys()) + ["Unknown"])
+        
+        if luogo_selezionato != "Unknown":
+            # Selezione dell'edificio
+            edifici = luoghi[luogo_selezionato]
+            edificio_selezionato = st.selectbox("Seleziona un Edificio:", list(edifici.keys()) + ["Unknown"])
+            
+            if edificio_selezionato != "Unknown":
+                # Selezione della stanza
+                stanze = edifici[edificio_selezionato]
+                stanza_selezionata = st.selectbox("Seleziona una Stanza:", stanze + ["Unknown"])
+            else:
+                stanza_selezionata = "Unknown"
+        else:
+            edificio_selezionato = "Unknown"
+            stanza_selezionata = "Unknown"
+
+    # Mostra le selezioni
+    st.write(f"Luogo Selezionato: {luogo_selezionato}")
+    st.write(f"Edificio Selezionato: {edificio_selezionato}")
+    st.write(f"Stanza Selezionata: {stanza_selezionata}")
+    """
+    # Initial location for the map
+    initial_location = [47.376234009886616, 8.547658923119648]
+
+    # Create a Folium map centered on the initial location
+    m = folium.Map(location=initial_location, zoom_start=16)
+
+    # Add a ClickForLatLng feature to the map
     m.add_child(folium.ClickForLatLng())
-    
-    # call to render Folium map in Streamlit
+
+    # Render the Folium map in Streamlit
     st_data = st_folium(m, width=600, height=300)
-    
-    # If the user clicked on the map, st_data will have click information
+
+    # Check if the user clicked on the map
     if st_data and 'last_clicked' in st_data:
         clicked_location = st_data['last_clicked']
-        st.write(f"You clicked at: {clicked_location}")
-        
+
+        # Make sure clicked_location is not None
+        if clicked_location is not None:
+            # Extract latitude and longitude
+            lat, lon = tuple(clicked_location.values())
+
+            # Create and add the new marker at the clicked location
+            folium.Marker(
+                location=[lat, lon],
+                popup="<i>Selected Location</i>",
+                tooltip="Current Location"
+            ).add_to(m)
+
+            # Re-render the updated map with the new marker
+            st_data = st_folium(m, width=600, height=300)
+
+            # Display the clicked location
+            st.write(f"You clicked at: Latitude: {lat}, Longitude: {lon}")"""
+            
+            
     st.subheader("When?")
     
     st.write("Select the time when you lost your item")
