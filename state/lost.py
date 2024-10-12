@@ -35,7 +35,8 @@ def find_match(img, description, time, location):
     desc_emb = model.encode([description])
 
     # retrieve all items embedding
-    found_items = db.get_found_items()
+    found_items = [item for item in db.get_found_items() if item.image is not None and item.emb is not None]
+    
     if len(found_items) > 0:
         imgs_emb = [torch.from_numpy(item.emb) for item in found_items]
 
@@ -43,7 +44,6 @@ def find_match(img, description, time, location):
         hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
         
         st.session_state['hit_img'] = found_items[hits[0]['corpus_id']].image
-
 
         if hits[0]['score'] > 0:
             match_found = True

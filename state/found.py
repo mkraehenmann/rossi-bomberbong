@@ -16,9 +16,13 @@ def change_state(state):
 
 def find_match(img, description, time, location):
     
+        # evaluate embedding
+        img_model = SentenceTransformer('clip-ViT-B-32')
+        img_emb = img_model.encode(img)
+
         # Insert found item into database
         id = random.getrandbits(32)
-        item = Item(id, None, None, description, time, location)
+        item = Item(id, img, img_emb, description, time, location)
         db = Database()
         db.insert_item(item)
         u = db.get_user(st.session_state.username)
@@ -56,17 +60,7 @@ def found(authenticator):
     if file is not None:
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
-        st.image(img)  
-
-        # evaluate embedding
-        img_model = SentenceTransformer('clip-ViT-B-32')
-        img_emb = img_model.encode(img)
-        
-        # add to db
-        db = Database()
-        i = Item(random.randint(0, sys.maxsize), img, img_emb, "", 0, "")
-        db.insert_item(i)
-        db.insert_found_item(i, st.session_state.user)
+        st.image(img)
         
     # get location of found item
     with open('rooms.json', 'r') as file:
