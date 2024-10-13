@@ -40,6 +40,7 @@ def find_match(img, description, time, location):
 
         # retrieve all items embedding
         lost_items = db.get_lost_items()
+        filter(lambda x: x.time == time, lost_items)
         
         if len(lost_items) > 0:
             descs_emb = [torch.from_numpy(desc_model.encode(item.description)) for item in lost_items]

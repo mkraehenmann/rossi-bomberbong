@@ -36,6 +36,7 @@ def find_match(img, description, time, location):
 
     # retrieve all items embedding
     found_items = [item for item in db.get_found_items() if item.image is not None and item.emb is not None]
+    filter(lambda x: x.time == time, found_items)
     
     if len(found_items) > 0:
         imgs_emb = [torch.from_numpy(item.emb) for item in found_items]
