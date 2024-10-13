@@ -22,7 +22,7 @@ def lost_or_found(authenticator):
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
 
     # title
-    st.title('Lost or Found')
+    st.title('Have you lost or found an item?')
 
     col1, col2 = st.columns(2)
     
@@ -32,49 +32,35 @@ def lost_or_found(authenticator):
             key="lost_button",
             css_styles="""
                 button {
-                    background-color: white;  /* Set background color to white */
-                    color: black;  /* Use black text for contrast */
                     border-radius: 10px;
                     padding: 30px 60px;  /* Increase padding for a larger button */
-                    font-size: 224px;  /* Set font size */
-                    font-family: 'Inter', san-serif;
-                    text-align: center;
                     display: inline-block;  /* Allows width adjustment */
                     width: 100%;  /* Full width of the column */
-                    height: 500px;  /* Set fixed height for the button */
+                    aspect-ratio : 1 / 1; /* Set aspect ratio to 1:1 */
                     border: 3px solid lightgray;  /* Optional: add border to match the design */
+                    background-image: url('./app/static/lost.png');
+                    background-size: cover;
+                    background-position: center;
                 }
                 """,
         ):
-            st.button("Lost", on_click=change_state, args=["lost"])
+            st.button(label="", key="lost_button", on_click=change_state, args=["lost"])
 
     with col2:
         with stylable_container(
             key="found_button",
             css_styles="""
                 button {
-                    background-color: white;  /* Set background color to white */
-                    color: black;  /* Use black text for contrast */
                     border-radius: 10px;
                     padding: 30px 60px;  /* Increase padding for a larger button */
-                    font-size: 224px;  /* Set font size */
-                    font-family: 'Inter', san-serif;
-                    text-align: center;
                     display: inline-block;  /* Allows width adjustment */
                     width: 100%;  /* Full width of the column */
-                    height: 500px;  /* Set fixed height for the button */
+                    aspect-ratio : 1 / 1; /* Set aspect ratio to 1:1 */
                     border: 3px solid lightgray;  /* Optional: add border to match the design */
-                }
-                button:hover {
-                    background-color: gray;  /* Change background to gray on hover */
-                    color: white;  /* Change text color to white on hover */
-                }
-                .label {
-                    font-size: 54px;  /* Set font size for the label */
-                    color: red;  /* Set label text color */
-                    margin-bottom: 10px;  /* Space between label and content */
+                    background-image: url('./app/static/found.png');
+                    background-size: cover;
+                    background-position: center;
                 }
                 """,
         ):
-            st.button("Found", on_click=change_state, args=["found"])
-            #st.markdown('<div class="label">Custom Label</div>', unsafe_allow_html=True)
+            st.button(label="", key="found_button",  on_click=change_state, args=["found"])
