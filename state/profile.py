@@ -69,23 +69,7 @@ def profile(authenticator):
     # report lost or found item
     st.subheader('Report a lost or found item')
     st.button('Report', on_click=change_state, args=['lost_or_found'])
-
-    # # styled button
-    # with stylable_container(
-    #     key="green_button",
-    #     css_styles="""
-    #         button {
-    #             width: 200px;
-    #             border-radius: 20px;
-    #             background-image: url('./app/static/test.jpeg');
-    #             background-size: cover;
-    #             background-position: center;
-    #         }
-    #         """,
-    # ):
-    #     st.button("", on_click=lambda: print("unga"))
     
-    
-    st.button("go to this your item", on_click=change_state, args=['this_your_item'])
-    st.button("go to someone_lost", on_click=change_state, args=['someone_lost'])
-    st.button("go to someone_found", on_click=change_state, args=['someone_found'])
+    # st.button("go to this your item", on_click=change_state, args=['this_your_item'])
+    # st.button("go to someone_lost", on_click=change_state, args=['someone_lost'])
+    # st.button("go to someone_found", on_click=change_state, args=['someone_found'])
