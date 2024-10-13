@@ -66,3 +66,8 @@ def profile(authenticator):
     #         """,
     # ):
     #     st.button("", on_click=lambda: print("unga"))
+    
+    
+    st.button("go to this your item", on_click=change_state, args=['this_your_item'])
+    st.button("go to someone_lost", on_click=change_state, args=['someone_lost'])
+    st.button("go to someone_found", on_click=change_state, args=['someone_found'])
