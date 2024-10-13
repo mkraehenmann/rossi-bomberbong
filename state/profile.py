@@ -8,11 +8,15 @@ def change_state(state):
 
 def profile(authenticator):
 
-    # put the username in the sidebar
+    # sidebar stuff
     st.sidebar.markdown(st.session_state.username)
-
-    # logout
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
+    st.sidebar.write('Other Options')
+    st.sidebar.button(
+        label = 'Report an Item',
+        on_click=change_state, 
+        args=['lost_or_found'],
+    )
     
     # title
     st.title(f'{st.session_state.username}')

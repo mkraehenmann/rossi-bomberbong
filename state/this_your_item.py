@@ -12,6 +12,7 @@ def change_state(state):
         db = Database()
         st.session_state['hit_id']
         db.insert_match(st.session_state['hit_id'], st.session_state['it_id'])
+        db.close()
 
 
     if 'state' in st.session_state:
@@ -19,25 +20,32 @@ def change_state(state):
 
 def this_your_item(authenticator):
     
-    # go back to profile page
+    # sidebar stuff
     st.sidebar.markdown(st.session_state.username)
     st.sidebar.button(
         label = 'Your Profile',
         on_click=change_state, 
         args=['profile'],
     )
-    
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
+    st.sidebar.write('Other Options')
+    st.sidebar.button(
+        label = 'Report an Item',
+        on_click=change_state, 
+        args=['lost_or_found'],
+    )
     
     st.title('Is This Your Item ?')
+    
+    # First column with label for the image
     db = Database()
-
     with stylable_container(
             key="image_container",
             css_styles=""""""
                 ):
             st.image(db.get_item(st.session_state['hit_id']).image)
             st.write(db.get_item(st.session_state['it_id']).description)
+    db.close()
 
     # Second column with label for buttons
     with stylable_container(key="yes_button",
