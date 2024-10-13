@@ -31,26 +31,10 @@ def someone_found(authenticator):
         st.image(db.get_item(st.session_state['hit_id']).image)
         st.write(db.get_item(st.session_state['it_id']).description)
 
-    # Second column with label for buttons
-    st.write("")
-    with stylable_container(key="yes_button",
-        css_styles="""
-            button {
-                background-color: #34A853;  /* Set background color to white */
-                color: white;  /* Use black text for contrast */
-                border-radius: 10px;
-                padding: 30px 60px;  /* Increase padding for a larger button */
-                font-size: 224px;  /* Set font size */
-                font-family: 'Inter', san-serif;
-                text-align: center;
-                display: inline-block;  /* Allows width adjustment */
-                width: 100%;  /* Full width of the column */
-                height: 80px;  /* Set fixed height for the button */
-                border: 3px solid lightgray;  /* Optional: add border to match the design */
-            }"""):
-        st.subheader("Your contact:")
-        st.write(db.get_users()[1].username)
-        st.write(db.get_users()[1].email)
+
+    st.subheader("Contact the person who found your item")
+    st.write(db.get_users()[1].username)
+    st.write(db.get_users()[1].email)
 
     # go back to profile page
     st.button('Profile', on_click=change_state, args=['profile'])
