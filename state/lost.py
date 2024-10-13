@@ -44,12 +44,12 @@ def find_match(img, description, time, location):
         hits = util.semantic_search(torch.from_numpy(desc_emb), imgs_emb, top_k=10)[0]
         
         st.session_state['hit_img'] = found_items[hits[0]['corpus_id']].image
-
+        st.session_state['hit_id'] = found_items[hits[0]['corpus_id']].id
+        st.session_state['it_id'] = item.id
         print(hits[0]['score'] or hits[0]['score'] > 0.25)
         if hits[0]['score'] > 0:
             match_found = True
-            #ToDO: insert match in db
-            db.insert_match(found_items[hits[0]['corpus_id']].id ,item.id)
+            
 
     # change state
     db.close()

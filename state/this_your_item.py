@@ -1,6 +1,12 @@
 import streamlit as st
+from db_manager import *
 
 def change_state(state):
+    # add match to db
+    if 'someone_found' in state:
+        db = Database()
+        st.session_state['hit_id']
+        db.insert_match(st.session_state['hit_id'], st.session_state['it_id'])
     if 'state' in st.session_state:
         st.session_state.state = state
 
