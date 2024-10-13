@@ -3,13 +3,13 @@ from streamlit_extras.stylable_container import stylable_container
 
 from db_manager import *
 
-db = Database()
 
 def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
 def someone_found(authenticator):
+    db = Database()
 
      # go back to profile page
     st.sidebar.markdown(st.session_state.username)
@@ -22,14 +22,14 @@ def someone_found(authenticator):
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
 
     st.title('Someone Found Your Item')
-    
-    
+        
+    # First column with label for the image
     with stylable_container(
         key="image_container",
         css_styles=""""""
             ):
-        st.image(db.get_items()[0].image)
-        st.write(db.get_items()[0].description)
+        st.image(db.get_item(st.session_state['hit_id']).image)
+        st.write(db.get_item(st.session_state['it_id']).description)
 
     # Second column with label for buttons
     st.write("")

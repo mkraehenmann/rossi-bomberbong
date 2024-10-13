@@ -5,7 +5,6 @@ from streamlit_extras.stylable_container import stylable_container
 
 from db_manager import *
 
-db = Database()
 
 def change_state(state):
     # add match to db
@@ -31,14 +30,14 @@ def this_your_item(authenticator):
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
     
     st.title('Is This Your Item ?')
-    
-    # First column with label for the image
+    db = Database()
+
     with stylable_container(
-        key="image_container",
-        css_styles=""""""
-            ):
-        st.image(db.get_items()[0].image)
-        st.write(db.get_items()[0].description)
+            key="image_container",
+            css_styles=""""""
+                ):
+            st.image(db.get_item(st.session_state['hit_id']).image)
+            st.write(db.get_item(st.session_state['it_id']).description)
 
     # Second column with label for buttons
     with stylable_container(key="yes_button",

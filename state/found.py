@@ -12,7 +12,7 @@ import torch
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
 
-def change_state(state):
+def change_state(state):        
     if 'state' in st.session_state:
         st.session_state.state = state
 

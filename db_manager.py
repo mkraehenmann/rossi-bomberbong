@@ -127,6 +127,18 @@ class Database:
         self.con.commit()
 
 
+    def get_item(self, id: int) -> Item:
+        self.cur.execute('SELECT * FROM items WHERE id = ?', (id,))
+        item = self.cur.fetchone()  # Fetches the first matching row
+        return Item(
+            item[0],
+            pickle.loads(item[1]) if item[1] else None,
+            pickle.loads(item[2]) if item[2] else None,
+            item[3],
+            item[4],
+            item[5]
+        )
+
     # get collections
     def get_items(self) -> list:
         self.cur.execute('SELECT * FROM items')
