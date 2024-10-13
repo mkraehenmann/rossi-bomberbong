@@ -5,6 +5,7 @@ Create frontend and backend stramlit + fastapi: https://medium.com/codex/streaml
 <!-- List files folders and what they are for -->
 ## Files and Folders
 - `state` contains the python files that implement functionalities for each state of the app
+- `static` contains the static files for the app
 - `app.py` main file that runs streamlit app. Execute with `streamlit run app.py`
 - `config_auth.yaml` contains the configuration for the streamlit authenticator
 - `db_manager.py` contains the class that manages the SQLite database
@@ -23,7 +24,6 @@ Answer: The main item in the image is described as follows by a cautious writer 
 - use hugging-face or compile it down with same tutorial
 
 
-<!-- list dependencies -->
 ## Conda Dependencies
 - `streamlit`
 - `numpy `
