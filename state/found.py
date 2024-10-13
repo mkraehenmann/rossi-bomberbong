@@ -65,16 +65,20 @@ def find_match(img, description, time, location):
 
 def found(authenticator):
 
-    # go back to profile page
+    # sidebar stuff
     st.sidebar.markdown(st.session_state.username)
     st.sidebar.button(
         label = 'Your Profile',
         on_click=change_state, 
         args=['profile'],
     )
-
-    # logout
     authenticator.logout(location='sidebar', callback=lambda _: change_state("login"))
+    st.sidebar.write('Other Options')
+    st.sidebar.button(
+        label = 'Report an Item',
+        on_click=change_state, 
+        args=['lost_or_found'],
+    )
 
     # title
     st.title('Describe the item you found')
