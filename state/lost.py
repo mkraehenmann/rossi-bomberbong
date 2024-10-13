@@ -58,8 +58,9 @@ def find_match(img, description, time, location):
 def lost(authenticator):
 
     # go back to profile page
+    st.sidebar.markdown(st.session_state.username)
     st.sidebar.button(
-        label = st.session_state.username, 
+        label = 'Your Profile',
         on_click=change_state, 
         args=['profile'],
     )

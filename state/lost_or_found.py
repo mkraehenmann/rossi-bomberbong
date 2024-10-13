@@ -1,5 +1,5 @@
 import streamlit as st
-import streamlit_extras
+# import streamlit_extras
 
 from streamlit_extras.stylable_container import stylable_container
 
@@ -23,20 +23,7 @@ def lost_or_found(authenticator):
 
     # title
     st.title('Lost or Found')
-    
-    streamlit_extras.let_it_rain.rain( #🎈
-        emoji="🎈",
-        font_size=54,
-        falling_speed=5,
-        animation_length="infinite",
-    )
 
-    # Add some description
-    #st.markdown("""
-    #Use the buttons above to indicate if the item is lost or found. 
-    #Clicking a button will display a message below.
-    #""")
-    #
     col1, col2 = st.columns(2)
     
     # Define buttons in the left and right columns
