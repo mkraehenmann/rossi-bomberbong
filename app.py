@@ -9,6 +9,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
+from streamlit_extras.stylable_container import stylable_container
 
 from state.login import login
 from state.register import register
@@ -34,6 +35,35 @@ authenticator = stauth.Authenticate(
     config['cookie']['key'],
     config['cookie']['expiry_days']
 )
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    pass
+with col3:
+    pass
+with col2:
+    with stylable_container(
+                key="logo",
+                css_styles="""
+                    button {
+                        display: inline-block;  /* Allows width adjustment */
+                        width: 150px;  /* Set a width for the logo */
+                        aspect-ratio: 1 / 1;  /* Keep a 1:1 ratio */
+                        border: none;  /* Remove border */
+                        background-image: url('./app/static/logo_rounded.png');
+                        background-size: cover;
+                        background-position: center;                    
+                        top: 50%;  /* Align to the top */
+                        left: 50%;  /* Align to the left */
+                        margin: 10px;  /* Add some spacing from the edges */
+                    }
+                    """,
+    ):
+        if 'state' not in st.session_state or st.session_state.state == 'login':
+            st.button(label="", key="logo", on_click=change_state, args=["login"])
+        else:
+            st.button(label="", key="logo", on_click=change_state, args=["lost_or_found"])
 
 # state machine
 if 'state' not in st.session_state or st.session_state.state == 'login':
