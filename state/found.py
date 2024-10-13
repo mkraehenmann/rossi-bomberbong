@@ -38,8 +38,8 @@ def find_match(img, description, time, location):
         # TODO: Find match
         match_found = False
 
-        # retrieve all items embedding
-        lost_items = db.get_lost_items()
+        # retrieve all items embedding not matched
+        lost_items = db.get_unmatched_lost_items()
         filter(lambda x: x.time == time, lost_items)
         
         if len(lost_items) > 0:
@@ -51,7 +51,6 @@ def find_match(img, description, time, location):
             st.session_state['hit_desc'] = lost_items[hits[0]['corpus_id']].description
             st.session_state['hit_id'] = lost_items[hits[0]['corpus_id']].id
             st.session_state['it_id'] = item.id
-
 
             if hits[0]['score'] > 0 or hits[0]['score'] > 0.25:
                 match_found = True

@@ -7,6 +7,8 @@ def change_state(state):
         db = Database()
         st.session_state['hit_id']
         db.insert_match(st.session_state['hit_id'], st.session_state['it_id'])
+
+
     if 'state' in st.session_state:
         st.session_state.state = state
 

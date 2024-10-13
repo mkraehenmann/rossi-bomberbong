@@ -100,7 +100,32 @@ class Database:
             return
         self.cur.execute('INSERT INTO matches (item1_id, item2_id) VALUES (?, ?)', (found_item_id, lost_item_id))
         self.con.commit()
-    
+
+    # remove single item from the database
+    def remove_item(self, id: int) -> None:
+        self.cur.execute('DELETE FROM items WHERE id = ?', (id,))
+        self.con.commit()
+
+    # remove single user from the database
+    def remove_user(self, username: str) -> None:
+        self.cur.execute('DELETE FROM users WHERE username = ?', (username,))
+        self.con.commit()
+
+    # remove lost item association from the database
+    def remove_lost_item(self, item_id: int) -> None:
+        self.cur.execute('DELETE FROM lost_items WHERE item_id = ?', (item_id,))
+        self.con.commit()
+
+    # remove found item association from the database
+    def remove_found_item(self, item_id: int) -> None:
+        self.cur.execute('DELETE FROM found_items WHERE item_id = ?', (item_id,))
+        self.con.commit()
+
+    # remove match from the database
+    def remove_match(self, found_item_id: int, lost_item_id: int) -> None:
+        self.cur.execute('DELETE FROM matches WHERE item1_id = ? AND item2_id = ?', (found_item_id, lost_item_id))
+        self.con.commit()
+
 
     # get collections
     def get_items(self) -> list:
@@ -127,6 +152,33 @@ class Database:
         self.cur.execute('SELECT * FROM matches')
         matches = self.cur.fetchall()
         return [(match[0], match[1]) for match in matches]
+
+    # retrieve lost items that do not have a match
+    def get_unmatched_lost_items(self) -> list:
+        self.cur.execute('''
+            SELECT li.item_id, image, emb, description, time, location
+            FROM lost_items li
+            JOIN items it ON li.item_id = it.id
+            LEFT JOIN matches m ON li.item_id = m.item2_id
+            WHERE m.item2_id IS NULL
+        ''')
+        lost_items = self.cur.fetchall()
+        return [Item(item[0], pickle.loads(item[1]) if item[1] else None, 
+                    pickle.loads(item[2]) if item[2] else None, item[3], item[4], item[5]) for item in lost_items]
+
+    # retrieve found items that do not have a match
+    def get_unmatched_found_items(self) -> list:
+        self.cur.execute('''
+            SELECT fi.item_id, image, emb, description, time, location
+            FROM found_items fi
+            JOIN items it ON fi.item_id = it.id
+            LEFT JOIN matches m ON fi.item_id = m.item1_id
+            WHERE m.item1_id IS NULL
+        ''')
+        found_items = self.cur.fetchall()
+        return [Item(item[0], pickle.loads(item[1]) if item[1] else None, 
+                    pickle.loads(item[2]) if item[2] else None, item[3], item[4], item[5]) for item in found_items]
+
 
     # get single
     def get_user(self, username:str) -> User:

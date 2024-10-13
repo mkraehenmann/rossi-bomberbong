@@ -35,7 +35,7 @@ def find_match(img, description, time, location):
     desc_emb = model.encode([description])
 
     # retrieve all items embedding
-    found_items = [item for item in db.get_found_items() if item.image is not None and item.emb is not None]
+    found_items = [item for item in db.get_unmatched_found_items() if item.image is not None and item.emb is not None]
     filter(lambda x: x.time == time, found_items)
     
     if len(found_items) > 0:
