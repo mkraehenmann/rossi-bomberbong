@@ -28,7 +28,7 @@ def find_match(img, description, time, location):
     db.insert_item(item)
     u = db.get_user(st.session_state.username)
     db.insert_lost_item(item, u)
-
+    
     # get description embedding
     match_found = False
     model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
@@ -45,8 +45,11 @@ def find_match(img, description, time, location):
         
         st.session_state['hit_img'] = found_items[hits[0]['corpus_id']].image
 
+        print(hits[0]['score'] or hits[0]['score'] > 0.25)
         if hits[0]['score'] > 0:
             match_found = True
+            #ToDO: insert match in db
+            db.insert_match(found_items[hits[0]['corpus_id']].id ,item.id)
 
     # change state
     db.close()

@@ -25,6 +25,8 @@ def find_match(img, description, time, location):
         # description embedder
         desc_model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
 
+
+        img_emb = img_emb
         # Insert found item into database
         id = random.getrandbits(32)
         item = Item(id, img, img_emb, description, time, location)
@@ -47,8 +49,11 @@ def find_match(img, description, time, location):
             
             st.session_state['hit_desc'] = lost_items[hits[0]['corpus_id']].description
 
-            if hits[0]['score'] > 0:
+            if hits[0]['score'] > 0 or hits[0]['score'] > 0.25:
                 match_found = True
+                # Insert item
+                db.insert_match(item.id ,lost_items[hits[0]['corpus_id']].id)
+
 
         db.close()
 
