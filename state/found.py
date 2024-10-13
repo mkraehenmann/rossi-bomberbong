@@ -8,7 +8,9 @@ import json
 import datetime
 from datetime import datetime, timedelta
 import random
-import sys
+import torch
+from transformers import BlipProcessor, BlipForConditionalGeneration
+
 
 def change_state(state):
     if 'state' in st.session_state:
@@ -16,9 +18,16 @@ def change_state(state):
 
 def find_match(img, description, time, location):
     
+        # evaluate embedding
+        img_model = SentenceTransformer('clip-ViT-B-32')
+        img_emb = img_model.encode(img)
+
+        # description embedder
+        desc_model = SentenceTransformer('clip-ViT-B-32-multilingual-v1')
+
         # Insert found item into database
         id = random.getrandbits(32)
-        item = Item(id, None, None, description, time, location)
+        item = Item(id, img, img_emb, description, time, location)
         db = Database()
         db.insert_item(item)
         u = db.get_user(st.session_state.username)
@@ -27,10 +36,24 @@ def find_match(img, description, time, location):
         # TODO: Find match
         match_found = False
 
+        # retrieve all items embedding
+        lost_items = db.get_lost_items()
+        
+        if len(lost_items) > 0:
+            descs_emb = [torch.from_numpy(desc_model.encode(item.description)) for item in lost_items]
+
+            # get top 10 items
+            hits = util.semantic_search([torch.from_numpy(img_emb)], descs_emb, top_k=10)[0]
+            
+            st.session_state['hit_desc'] = lost_items[hits[0]['corpus_id']].description
+
+            if hits[0]['score'] > 0:
+                match_found = True
+
         db.close()
 
         if match_found:
-            change_state('someone_lost')
+            change_state('this_description_matches')
         else:
             change_state('profile')
 
@@ -53,21 +76,31 @@ def found(authenticator):
     st.subheader("What")
     img = None
     file = st.file_uploader("yea", type=["png", "jpg", "jpeg", "HEIC"], label_visibility='collapsed')
+
+    description = None
+    
     if file is not None:
         img = Image.open(file)
         img = img.transpose(Image.ROTATE_270)
-        st.image(img)  
+        st.image(img)
+        
+        processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+        model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
-        # evaluate embedding
-        img_model = SentenceTransformer('clip-ViT-B-32')
-        img_emb = img_model.encode(img)
-        
-        # add to db
-        db = Database()
-        i = Item(random.randint(0, sys.maxsize), img, img_emb, "", 0, "")
-        db.insert_item(i)
-        db.insert_found_item(i, st.session_state.user)
-        
+        raw_image = img.convert('RGB')
+
+        # conditional image captioning
+        text = "The image contains "
+        inputs = processor(raw_image, text, return_tensors="pt")
+
+        out = model.generate(**inputs)
+        processor.decode(out[0], skip_special_tokens=True)
+        description = st.text_area(
+            label="yeah",
+            value=processor.decode(out[0], skip_special_tokens=True),
+            label_visibility='collapsed'
+        )
+
     # get location of found item
     with open('rooms.json', 'r') as file:
         locs = json.load(file)
@@ -89,7 +122,7 @@ def found(authenticator):
     )
     time = int(datetime.combine(date, datetime.min.time()).timestamp())
     
-    st.button('Submit', on_click=find_match, args=[img, None, time, location])
+    st.button('Submit', on_click=find_match, args=[img, description, time, location])
     
     # # go back to profile page
     # st.button('Profile', on_click=change_state, args=['profile'])
