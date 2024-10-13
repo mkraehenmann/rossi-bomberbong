@@ -1,3 +1,6 @@
+# set environment variable before:
+    # for windows: $env:STREAMLIT_SERVER_ENABLE_STATIC_SERVING = 'true'
+    # for linux: export STREAMLIT_SERVER_ENABLE_STATIC_SERVING=true
 # run with streamlit run app.py
 
 import streamlit as st
@@ -21,10 +24,9 @@ def change_state(state):
     if 'state' in st.session_state:
         st.session_state.state = state
 
-
+# authenticate setup
 with open('./config_auth.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
-
 authenticator = stauth.Authenticate(
     config['credentials'],
     config['cookie']['name'],
@@ -32,9 +34,7 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days']
 )
 
-# print(f'0: {st.session_state}')
-
-
+# state machine
 if 'state' not in st.session_state or st.session_state.state == 'login':
     login(authenticator, config)
 

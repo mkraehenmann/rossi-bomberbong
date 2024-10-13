@@ -37,6 +37,8 @@ class Database:
         self.create_table()
     
     def create_table(self):
+        # create table for matches where one item is in found_items and the other is in lost_items
+        self.cur.execute('CREATE TABLE IF NOT EXISTS matches (item1_id INTEGER, item2_id INTEGER, PRIMARY KEY (item1_id, item2_id))')
         self.cur.execute('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, image BLOB, emb BLOB, description TEXT, time INTEGER, location TEXT)')
         self.cur.execute('CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, password TEXT, email TEXT)')
         self.cur.execute('CREATE TABLE IF NOT EXISTS lost_items (item_id INTEGER, user_id TEXT, PRIMARY KEY (item_id, user_id))')
@@ -58,6 +60,10 @@ class Database:
     
     def found_item_exists(self, item_id:int, user_id:str) -> bool:
         self.cur.execute('SELECT * FROM found_items WHERE item_id = ? AND user_id = ?', (item_id, user_id))
+        return self.cur.fetchone() is not None
+    
+    def match_exists(self, item1_id:int, item2_id:int) -> bool:
+        self.cur.execute('SELECT * FROM matches WHERE item1_id = ? AND item2_id = ?', (item1_id, item2_id))
         return self.cur.fetchone() is not None
     
     
@@ -89,6 +95,12 @@ class Database:
         self.cur.execute('INSERT INTO found_items (item_id, user_id) VALUES (?, ?)', (item.id, user.username))
         self.con.commit()
     
+    def insert_match(self, found_item_id:int, lost_item_id:int):
+        if self.match_exists(found_item_id, lost_item_id):
+            return
+        self.cur.execute('INSERT INTO matches (item1_id, item2_id) VALUES (?, ?)', (found_item_id, lost_item_id))
+        self.con.commit()
+    
 
     # get collections
     def get_items(self) -> list:
@@ -111,6 +123,10 @@ class Database:
         found_items = self.cur.fetchall()        
         return [Item(item[0], pickle.loads(item[1]) if item[1] else None, pickle.loads(item[2]) if item[2] else None, item[3], item[4], item[5]) for item in found_items]
 
+    def get_matches(self) -> list:
+        self.cur.execute('SELECT * FROM matches')
+        matches = self.cur.fetchall()
+        return [(match[0], match[1]) for match in matches]
 
     # get single
     def get_user(self, username:str) -> User:
@@ -120,8 +136,31 @@ class Database:
             return User(*user)
         return None
     
+    # get user items
+    def get_user_lost_items(self, username:str) -> list[Item]:
+        self.cur.execute('SELECT li.item_id, image, emb, description, time, location FROM lost_items li JOIN items it ON (li.item_id = it.id) WHERE user_id = ?', (username,))
+        lost_items = self.cur.fetchall()
+        return [Item(item[0], pickle.loads(item[1]) if item[1] else None, pickle.loads(item[2]) if item[2] else None, item[3], item[4], item[5]) for item in lost_items]
+
+    def get_user_found_items(self, username:str) -> list[Item]:
+        self.cur.execute('SELECT fi.item_id, image, emb, description, time, location FROM found_items fi JOIN items it ON (fi.item_id = it.id) WHERE user_id = ?', (username,))
+        found_items = self.cur.fetchall()
+        return [Item(item[0], pickle.loads(item[1]) if item[1] else None, pickle.loads(item[2]) if item[2] else None, item[3], item[4], item[5]) for item in found_items]
+    
+    # get item matches
+    def get_found_item_matches(self, item_id:int) -> list[int]:
+        self.cur.execute('SELECT item2_id FROM matches WHERE item1_id = ?', (item_id,))
+        matches = self.cur.fetchall()
+        return [match[0] for match in matches]
+    
+    def get_lost_item_matches(self, item_id:int) -> list[int]:
+        self.cur.execute('SELECT item1_id FROM matches WHERE item2_id = ?', (item_id,))
+        matches = self.cur.fetchall()
+        return [match[0] for match in matches]
+    
 
     # close connection
     def close(self):
         self.con.close()
+
     

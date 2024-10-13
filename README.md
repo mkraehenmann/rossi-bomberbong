@@ -41,3 +41,4 @@ Additional pytorch requirement:
 ## Pip Dependencies
 - `streamlit_authenticator`	
 - `streamlit_folium`
+- `streamlit_extras`
