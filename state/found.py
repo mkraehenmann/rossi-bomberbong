@@ -52,7 +52,7 @@ def find_match(img, description, time, location):
             st.session_state['hit_id'] = lost_items[hits[0]['corpus_id']].id
             st.session_state['it_id'] = item.id
 
-            if hits[0]['score'] > 0 or hits[0]['score'] > 0.25:
+            if hits[0]['score'] > 0.25:
                 match_found = True
 
 
@@ -92,7 +92,6 @@ def found(authenticator):
     
     if file is not None:
         img = Image.open(file)
-        img = img.transpose(Image.ROTATE_270)
         st.image(img)
         
         processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")

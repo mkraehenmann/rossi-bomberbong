@@ -47,8 +47,7 @@ def find_match(img, description, time, location):
         st.session_state['hit_img'] = found_items[hits[0]['corpus_id']].image
         st.session_state['hit_id'] = found_items[hits[0]['corpus_id']].id
         st.session_state['it_id'] = item.id
-        print(hits[0]['score'] or hits[0]['score'] > 0.25)
-        if hits[0]['score'] > 0:
+        if hits[0]['score'] > 0.25:
             match_found = True
             
 
