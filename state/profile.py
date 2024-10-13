@@ -37,16 +37,30 @@ def profile(authenticator):
         </div>
         """, unsafe_allow_html=True)
 
-    # found items
+    # displaying found items with image and status
     st.subheader('Items you found')
     for item, matches in zip(found_items, found_items_matches):
         status = 'claimed' if len(matches) > 0 else 'not claimed yet'
+
+        # Start the bordered div
         st.write(f"""
-        <div style="border: 1px solid black; padding: 10px; margin: 10px; border-radius: 10px;">
+        <div style="border: 1px solid black; padding: 1px; margin: 1px; border-radius: 1px; text-align: center;">
+        """, unsafe_allow_html=True)
+
+        # Display the image using Streamlit
+        if item.image is not None:
+            st.image(item.image, use_column_width=True)
+        else:
+            st.write('<p><em>No image available</em></p>', unsafe_allow_html=True)
+
+        # Add description and status inside the div
+        st.write(f"""
             <p style="padding-left: 2em; text-indent: -2em"><strong>Description:</strong> {item.description}</p>
             <p><strong>Status:</strong> {status}</p>
         </div>
         """, unsafe_allow_html=True)
+
+
 
     # report lost or found item
     st.subheader('Report a lost or found item')
