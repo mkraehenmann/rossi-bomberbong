@@ -1,6 +1,7 @@
 from db_manager import *
 import os
 import yaml
+from PIL import Image
 
 # read users from config_auth.yaml
 with open('config_auth.yaml') as f:
@@ -26,11 +27,17 @@ print('added users')
 
 # populate items
 description = 'lore ipsum dolor sit amet, consectetur adipiscing elit. lore ipsum dolor sit amet, consectetur adipiscing elit. lore ipsum dolor sit amet, consectetur adipiscing elit. lore ipsum dolor sit amet, consectetur adipiscing elit. lore ipsum dolor sit amet, consectetur adipiscing elit. lore ipsum dolor sit amet, consectetur adipiscing elit. lore ipsum dolor sit amet, consectetur adipiscing elit. '
+imgs = [
+    Image.open('static/item1.jpg'),
+    Image.open('static/item2.jpg'),
+    Image.open('static/item3.jpg'),
+    Image.open('static/item4.jpg'),
+]
 items = [
-    Item(10, None, None, description, 0, 'b'),
-    Item(11, None, None, description, 1, 'd'),
-    Item(12, None, None, description, 2, 'f'),
-    Item(13, None, None, description, 3, 'h'),
+    Item(10, imgs[0], None, description, 0, 'b'),
+    Item(11, imgs[1], None, description, 1, 'd'),
+    Item(12, imgs[2], None, description, 2, 'f'),
+    Item(13, imgs[3], None, description, 3, 'h'),
 ]
 for item in items:
     db.insert_item(item)
